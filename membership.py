@@ -13,5 +13,8 @@ predict_model["Silver"] = {"Expense": 5, "Income":7}
 
 
 def show_member_plan():
-    for x in member_plan.items():
+    for x, y in member_plan.items():
         print(x)
+        for z in y:
+            print(f"{z}: {y[z]}")
+        print()
