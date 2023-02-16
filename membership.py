@@ -37,11 +37,11 @@ def predict_tier(expense, income):
         x = math.sqrt((expense - predict_model[1][n])**2 + (income - predict_model[2][n])**2)
         euclid_distance.append(x)
         n += 1
-    max = euclid_distance[0]
+    min = euclid_distance[0]
     index = 0
     for i in range(1, len(euclid_distance)):
-        if euclid_distance[i] > max:
-            max = euclid_distance[i]
+        if euclid_distance[i] < min:
+            min = euclid_distance[i]
             index = i
     customer_tier = tier_name[index]
     return customer_tier
