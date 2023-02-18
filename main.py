@@ -3,7 +3,7 @@ import pandas as pd
 import membership as m
 
 
-st.title('Simple Customer Tier Predictor')
+st.title('Simple Customer Tier Classification')
 st.subheader('Give customer a deal based on their income & expense.')
 
 income = st.number_input(label='Income',value=2000000,format='%a')
