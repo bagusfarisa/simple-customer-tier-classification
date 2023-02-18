@@ -3,9 +3,9 @@ import math
 
 tier_name = ["Platinum", "Gold", "Silver"]
 tier_discount = [0.25, 0.15, 0.10]
-tier_requirement = ["Buy item(s) worth of 1,000,000 IDR",
-                    "Buy item(s) worth of 500,000 IDR",
-                    "Buy item(s) worth of 100,000 IDR"] 
+tier_requirement = ["by buying item(s) worth of 1,000,000 IDR",
+                    "by buying item(s) worth of 500,000 IDR",
+                    "by buying item(s) worth of 100,000 IDR"] 
 
 predict_model = [["Platinum", "Gold", "Silver"],
                 [4000000, 2000000,1000000],
@@ -22,11 +22,11 @@ def show_all_offer():
         n += 1
 
 
-def show_offer(tier_name):
-    print(tier_name)
-    index = tier_name.index(tier_name)
-    print(f"Discount: {tier_discount[index]}")
-    print(f"Requirement: {tier_requirement[index]}")
+def show_offer(tier):
+    index = tier_name.index(tier)
+    discount = tier_discount[index]
+    requirement = tier_requirement[index]
+    return discount, requirement
 
 
 def predict_tier(expense, income):

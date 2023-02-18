@@ -3,18 +3,25 @@ import pandas as pd
 import membership as m
 
 
-st.title("Simple Customer Tier Predictor")
-st.subheader("Giving offer based on the data inputted.")
+st.title('Simple Customer Tier Predictor')
+st.subheader('Give a deal based on income & expense.')
 
-
-expense = st.number_input(label="Expense",value=1000000,format='%a')
-income = st.number_input(label="Income",value=2000000,format='%a')
+income = st.number_input(label='Income',value=2000000,format='%a')
+expense = st.number_input(label='Expense',value=1000000,format='%a')
 
 tier = m.predict_tier(expense, income)
-st.write(tier)
+discount, requirement = m.show_offer(tier)
+discount = discount * 100
 
-st.write("Here's our first attempt at using data to create a table:")
-st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40]
-}))
+if income >= expense:
+    st.markdown(f'Predicted tier: **{tier}**')
+    st.success(f'''
+    **Deal for you:**
+
+    Get a {discount}% discount {requirement}
+    ''')
+else:
+    st.warning('''
+    **Warning**
+    
+    Income must be greater than expense.''')
