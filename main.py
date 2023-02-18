@@ -4,7 +4,7 @@ import membership as m
 
 
 st.title('Simple Customer Tier Predictor')
-st.subheader('Give a deal based on income & expense.')
+st.subheader('Give customer a deal based on their income & expense.')
 
 income = st.number_input(label='Income',value=2000000,format='%a')
 expense = st.number_input(label='Expense',value=1000000,format='%a')
@@ -23,5 +23,5 @@ if income >= expense:
 else:
     st.warning('''
     **Warning**
-    
+
     Income must be greater than expense.''')
